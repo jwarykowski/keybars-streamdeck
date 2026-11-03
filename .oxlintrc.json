@@ -1,0 +1,27 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "unicorn", "oxc", "import", "node"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "perf": "warn"
+  },
+  "rules": {
+    "typescript/no-floating-promises": "error",
+    "typescript/no-misused-promises": "error",
+    "unicorn/consistent-function-scoping": "off"
+  },
+  "env": {
+    "node": true,
+    "builtin": true
+  },
+  "ignorePatterns": ["dist", "*.sdPlugin/bin"],
+  "overrides": [
+    {
+      "files": ["src/*.test.ts"],
+      "rules": {
+        "eslint/no-await-in-loop": "off"
+      }
+    }
+  ]
+}

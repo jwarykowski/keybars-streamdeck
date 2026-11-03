@@ -1,0 +1,94 @@
+{
+  "$schema": "https://schemas.elgato.com/streamdeck/plugins/manifest.json",
+  "UUID": "app.keybars.streamdeck",
+  "Name": "keybars",
+  "Version": "0.1.0.0",
+  "Author": "keybars",
+  "Description": "keybars Pro on your Stream Deck: Focus, the keyboard's lights, what it plays, and events from a key.",
+  "URL": "https://keybars.app/pro/",
+  "Icon": "imgs/plugin/marketplace",
+  "Category": "keybars",
+  "CategoryIcon": "imgs/plugin/category",
+  "CodePath": "bin/plugin.mjs",
+  "SDKVersion": 2,
+  "Software": {
+    "MinimumVersion": "7.1"
+  },
+  "OS": [
+    {
+      "Platform": "mac",
+      "MinimumVersion": "12"
+    },
+    {
+      "Platform": "windows",
+      "MinimumVersion": "10"
+    }
+  ],
+  "Nodejs": {
+    "Version": "20",
+    "Debug": "enabled"
+  },
+  "Actions": [
+    {
+      "UUID": "app.keybars.streamdeck.focus",
+      "Name": "Focus",
+      "Tooltip": "Start or stop keybars Pro's Focus timer; shows the time left.",
+      "Icon": "imgs/actions/focus/icon",
+      "Controllers": ["Keypad"],
+      "States": [
+        {
+          "Image": "imgs/actions/focus/off"
+        },
+        {
+          "Image": "imgs/actions/focus/on"
+        }
+      ],
+      "UserTitleEnabled": false
+    },
+    {
+      "UUID": "app.keybars.streamdeck.lights",
+      "Name": "Lights",
+      "Tooltip": "keybars Pro's lights on, or the keyboard back to its layout.",
+      "Icon": "imgs/actions/lights/icon",
+      "Controllers": ["Keypad"],
+      "States": [
+        {
+          "Image": "imgs/actions/lights/off"
+        },
+        {
+          "Image": "imgs/actions/lights/on"
+        }
+      ]
+    },
+    {
+      "UUID": "app.keybars.streamdeck.play",
+      "Name": "Play",
+      "Tooltip": "Play a mode on the keyboard: the equaliser, Ambient, Typing or System.",
+      "Icon": "imgs/actions/play/icon",
+      "Controllers": ["Keypad"],
+      "PropertyInspectorPath": "ui/play.html",
+      "States": [
+        {
+          "Image": "imgs/actions/play/off"
+        },
+        {
+          "Image": "imgs/actions/play/on"
+        }
+      ],
+      "UserTitleEnabled": false
+    },
+    {
+      "UUID": "app.keybars.streamdeck.event",
+      "Name": "Send event",
+      "Tooltip": "Send an event to keybars Pro's alert rules.",
+      "Icon": "imgs/actions/event/icon",
+      "Controllers": ["Keypad"],
+      "PropertyInspectorPath": "ui/event.html",
+      "States": [
+        {
+          "Image": "imgs/actions/event/on"
+        }
+      ]
+    }
+  ]
+}

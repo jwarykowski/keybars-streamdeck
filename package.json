@@ -1,0 +1,36 @@
+{
+  "name": "keybars-streamdeck",
+  "version": "0.1.0",
+  "private": true,
+  "description": "keybars Pro on a Stream Deck: Focus, the lights, what the keyboard plays, and events from a key.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://code.warykowski.io/jwarykowski/keybars-streamdeck.git"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/plugin.ts --bundle --platform=node --format=esm --target=node20 --banner:js=\"import { createRequire } from 'node:module'; const require = createRequire(import.meta.url);\" --outfile=app.keybars.streamdeck.sdPlugin/bin/plugin.mjs",
+    "check": "tsc --noEmit",
+    "lint": "oxlint",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
+    "test": "npm run build && node --experimental-strip-types --no-warnings --test 'src/**/*.test.ts'",
+    "validate": "streamdeck validate app.keybars.streamdeck.sdPlugin",
+    "pack": "npm run build && streamdeck pack app.keybars.streamdeck.sdPlugin --force -o dist"
+  },
+  "dependencies": {
+    "@elgato/streamdeck": "^3.0.2"
+  },
+  "devDependencies": {
+    "@elgato/cli": "^1.10.4",
+    "@elgato/utils": "^0.6.1",
+    "@types/node": "^22.20.5",
+    "@types/ws": "^8.18.2",
+    "esbuild": "^0.25.12",
+    "oxfmt": "^0.73.0",
+    "oxlint": "^1.88.0",
+    "typescript": "^5.9.3",
+    "ws": "^8.18.3"
+  }
+}

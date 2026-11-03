@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+# homelab's job image has Node, so nothing comes from GitHub, whose limit on
+# unauthenticated requests fails runs
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    container:
+      image: localhost/forgejo-job:1
+    steps:
+      - uses: https://code.forgejo.org/actions/checkout@v4
+      - run: npm ci
+      - run: npm run check
+      - run: npm run lint
+      - run: npm run fmt:check
+      - run: npm test
+      - run: npm run validate
+      - run: npm run pack
